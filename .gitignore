@@ -1,0 +1,17 @@
+# ignorar:
+
+# Ipython notebook checkpoints
+.ipynb_checkpoints/*
+notebooks/.ipynb_checkpoints/*
+
+*.sav
+
+# Byte-compiled / optimized / DLL files:
+/__pycache__/*
+*.py[cod]
+
+# Archivos pesados csv
+
+data/train_z.csv
+data/validation_z.csv
+data/test_z.csv
