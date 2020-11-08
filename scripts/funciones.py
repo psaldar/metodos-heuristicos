@@ -4,6 +4,7 @@ Created on Sun Aug  9 16:12:15 2020
 
 @author: Pablo Saldarriaga
 """
+import math
 import numpy as np
 import random
 from sklearn.base import clone
@@ -194,3 +195,80 @@ def entrenar_NN(X, Y, X_val, Y_val, k, params):
             best_mod = NN_mod
 
     return best_mod, best_score
+
+
+def binarize_parameter(val, val_list):
+    
+    bin_sol = np.zeros(len(val_list))
+    
+    for i in range(1,len(val_list)):
+        if (val_list[i-1] <= val) & (val <= val_list[i]):
+            bin_sol[i] = 1
+            break
+        
+    return bin_sol
+
+
+def create_neighborhood(bin_var1, bin_var2, n_size):
+    
+    pos_v1 = np.where(bin_var1==1)[0][0]
+    pos_v2 = np.where(bin_var2==1)[0][0]
+    
+    N = math.floor(n_size/2)
+    
+    ### creacion de indices de los vecinos
+    index_v1_aux = list(range(pos_v1-N,pos_v1+N+2))
+    
+    ### truncamiento de los indices
+    index_v1 = []
+    for v in index_v1_aux:
+        if v < 0:
+            index_v1.append(len(bin_var1)+v)
+        elif v>= len(bin_var1):
+            index_v1.append(v - len(bin_var1))
+        else:
+            index_v1.append(v)
+
+
+    ### creacion de indices de los vecinos
+    index_v2_aux = list(range(pos_v2-N,pos_v2+N+2))
+    
+    ### truncamiento de los indices
+    index_v2 = []
+    for v in index_v2_aux:
+        if v < 0:
+            index_v2.append(len(bin_var2)+v)
+        elif v>= len(bin_var2):
+            index_v2.append(v - len(bin_var2))
+        else:
+            index_v2.append(v)
+
+### Para moverse unicamente al lado derecho    
+#    if pos_v1+n_size <len(bin_var1):
+#        index_v1 = list(range(pos_v1,pos_v1+n_size+1))
+#    else:
+#        val1 = len(bin_var1) - pos_v1
+#        range_1 = list(range(pos_v1, pos_v1+val1))
+#        range_2 = list(range(1+n_size-val1))
+#        index_v1 = [*range_1, *range_2]
+#
+#    if pos_v2+n_size <len(bin_var2):
+#        index_v2 = list(range(pos_v2,pos_v2+n_size+1))
+#    else:
+#        val2 = len(bin_var2) - pos_v2
+#        range_1 = list(range(pos_v2, pos_v2+val2))
+#        range_2 = list(range(1+n_size-val2))
+#        index_v2 = [*range_1, *range_2]
+        
+    ### Crear el vecindario
+    neighborhood = []
+    for i in index_v1:
+        sol_var1 = np.zeros(len(bin_var1))
+        sol_var1[i] = 1
+        for j in index_v2:
+            sol_var2 = np.zeros(len(bin_var2))
+            sol_var2[j] = 1
+            
+            neighborhood.append((sol_var1,sol_var2))
+    
+    return neighborhood

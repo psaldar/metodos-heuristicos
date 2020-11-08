@@ -244,6 +244,93 @@ def update_poblacion(X_train, Y_train, X_val, Y_val, poblacion_prev, fitness, hi
     return new_poblacion, fitness, best_mod, best_score
 
 
+def busqueda_exahustiva(X_train, Y_train, X_val, Y_val, k, best_mod):
+    logger.info('Inicia busqueda exahustiva')
+    best_sol = best_mod.copy()
+    
+    sol_aux = best_mod.copy()
+    for f_activation in ["identity", "logistic", "tanh", "relu"]:
+        
+        for n_layers in range(1,5):
+            
+            if n_layers <= len(sol_aux['layer_sizes']):
+                new_layers = sol_aux['layer_sizes'][:n_layers]
+            else:
+                ones = []
+                cant_ones = n_layers - len(sol_aux['layer_sizes'])
+                for _ in range(cant_ones):
+                    ones.append(1)
+                
+                new_layers = tuple([*list(sol_aux['layer_sizes']), *ones])
+                
+            new_sol = best_mod.copy()
+            new_sol['layer_sizes'] = new_layers
+            new_sol['activation'] = f_activation
+            
+            _, score = funciones.entrenar_NN(X_train, Y_train, X_val, Y_val, k, new_sol)
+            
+            new_sol["fitness"] = score   
+            
+            if best_sol['fitness']< new_sol["fitness"]:
+                best_sol = new_sol.copy()
+                logger.info(f'Mejora la solucion con la busqueda exahustiva: {best_sol}')
+            
+        
+    return best_sol
+
+def busqueda_local(X_train, Y_train, X_val, Y_val, k, min_alpha, max_alpha,
+                                min_lr, max_lr, best_mod, vec_size =5):
+    ### inicializo soluciones a considerar
+    best_sol = best_mod.copy()    
+       
+    
+    lr = best_sol['learning_rate_init']
+    alpha = best_sol['alpha']
+    
+    ### discretizo los posibles valores de learning_rate y alpha
+    step_size = 20
+    h_lr = (max_lr-min_lr)/step_size
+    h_alpha = (max_alpha-min_alpha)/step_size
+    
+    lr_list = []
+    alpha_list = []
+    for i in range(step_size+1):
+        lr_list.append(min_lr+h_lr*i)
+        alpha_list.append(min_alpha+h_alpha*i)
+    
+    lr_list = np.array(lr_list)
+    alpha_list = np.array(alpha_list)
+    
+    ### obtengo binarizacion de las dos variables continuas
+    bin_lr = funciones.binarize_parameter(lr, lr_list)
+    bin_alpha = funciones.binarize_parameter(alpha, alpha_list)
+    
+    ### creacion del vecindario. 
+    vecindario = funciones.create_neighborhood(bin_lr, bin_alpha, vec_size)
+    
+    ### iterar sobre el vecindario
+    for vecino in vecindario:
+        lr_vecino = vecino[0]
+        alpha_vecino = vecino[1]
+    
+        new_sol = best_mod.copy()
+        new_sol['learning_rate_init'] = lr_list[lr_vecino==1][0]
+        new_sol['alpha'] = alpha_list[alpha_vecino==1][0]   
+        
+        ### obtengo el fitness del vecino en la iteracion
+        _, score = funciones.entrenar_NN(X_train, Y_train, X_val, Y_val, k, new_sol)
+        new_sol["fitness"] = score  
+        
+        ### conserva el primer vecino que mejore la FO
+        if best_sol['fitness']< new_sol["fitness"]:
+            best_sol = new_sol.copy()
+            logger.info(f'Mejora la solucion con la busqueda local: {best_sol}')
+            print('Mejora')
+            return best_sol
+        
+    logger.info('NO HAY MEJORA EN EL VECINDARIO')
+    return best_sol
+
 # %%
 
 
@@ -258,7 +345,9 @@ def AG(X_train,
        prob_mutacion=0.2,
        escenario=1,
        iteracion = 0,
-       desc = 'run'):
+       desc = 'run',
+       BH = False,
+       LS = False):
 
     time_ini = time.time()
 
@@ -337,6 +426,55 @@ def AG(X_train,
         if score > best_score:
             best_score = score
             best_mod = mod
+    
+        ### BUSQUEDA EXAHUSTIVA
+        if BH:
+            logger.info(f'Inicia busqueda exahustiva en la generacion al final de la generacion {i}')
+            ### consideramos una busqueda exahustiva en la mejor solucion encontrada
+            best_sol = busqueda_exahustiva(X_train, Y_train, X_val, Y_val, k, best_mod)
+            
+            ### actualiza la mejor solucion enconrada
+            if best_sol['fitness'] > best_score:
+                
+                logger.info('Encuentra mejor solucion en busqueda exahustiva')
+                best_score = best_sol['fitness']
+                best_mod = best_sol.copy()    
+                
+                logger.info('Agrega a la poblacion el mejor individuo de la BH')
+                ### ingresamos a la poblacion el mejor individuo encontrado
+                poblacion, fitness, mod, score = update_poblacion(X_train,
+                                                                    Y_train,
+                                                                    X_val,
+                                                                    Y_val,
+                                                                    poblacion,
+                                                                    fitness,
+                                                                    [best_mod],
+                                                                    k=k)
+        ### BUSQUEDA LOCAL
+        if LS:
+            logger.info(f'Inicia busqueda local en la generacion al final de la generacion {i}')
+            ### consideramos una busqueda exahustiva en la mejor solucion encontrada
+            best_sol = busqueda_local(X_train, Y_train, X_val, Y_val, k, 
+                                      min_alpha, max_alpha, min_lr, max_lr, 
+                                      best_mod, vec_size =5)
+            
+            ### actualiza la mejor solucion enconrada
+            if best_sol['fitness'] > best_score:
+                
+                logger.info('Encuentra mejor solucion en busqueda local')
+                best_score = best_sol['fitness']
+                best_mod = best_sol.copy()    
+                
+                logger.info('Agrega a la poblacion el mejor individuo de LS')
+                ### ingresamos a la poblacion el mejor individuo encontrado
+                poblacion, fitness, mod, score = update_poblacion(X_train,
+                                                                    Y_train,
+                                                                    X_val,
+                                                                    Y_val,
+                                                                    poblacion,
+                                                                    fitness,
+                                                                    [best_mod],
+                                                                    k=k)
 
     bes_mod_entrenado, _ = funciones.entrenar_NN(X_train, Y_train, X_val, Y_val, k, best_mod)
 
@@ -368,27 +506,27 @@ def AG(X_train,
     return best_mod, best_score, bes_mod_entrenado, historia_score
 
 
-# %%
-# if __name__ == "__main__":
-
-#     logger.info("CARGA DE DATOS")
-#     # Carga la informacion para entrenar el modelo
-#     train = pd.read_csv("../data/train_z.csv").drop(columns=["TW", "BARRIO"])
-#     validation = pd.read_csv("../data/validation_z.csv").drop(columns=["TW", "BARRIO"])
-#     test = pd.read_csv("../data/test_z.csv").drop(columns=["TW", "BARRIO"])
-
-#     # Divide conjunto de datos en entrenamiento y en prueba
-#     X_train = train.drop(columns="Accidente")
-#     Y_train = train["Accidente"]
-
-#     X_val = validation.drop(columns="Accidente")
-#     Y_val = validation["Accidente"]
-
-#     X_test = test.drop(columns="Accidente")
-#     Y_test = test["Accidente"]
-
-#     # Realiza la ejecucion del algoritmo genetico
-#     best_mod, best_score, bes_mod_entrenado, historia_score = AG(X_train,
+## %%
+#if __name__ == "__main__":
+#
+#    logger.info("CARGA DE DATOS")
+#    # Carga la informacion para entrenar el modelo
+#    train = pd.read_csv("../data/train_z.csv").drop(columns=["TW", "BARRIO"])
+#    validation = pd.read_csv("../data/validation_z.csv").drop(columns=["TW", "BARRIO"])
+#    test = pd.read_csv("../data/test_z.csv").drop(columns=["TW", "BARRIO"])
+#
+#    # Divide conjunto de datos en entrenamiento y en prueba
+#    X_train = train.drop(columns="Accidente")
+#    Y_train = train["Accidente"]
+#
+#    X_val = validation.drop(columns="Accidente")
+#    Y_val = validation["Accidente"]
+#
+#    X_test = test.drop(columns="Accidente")
+#    Y_test = test["Accidente"]
+#
+#    # Realiza la ejecucion del algoritmo genetico
+#    best_mod, best_score, bes_mod_entrenado, historia_score = AG(X_train,
 #                                                                  Y_train,
 #                                                                  X_val,
 #                                                                  Y_val,
@@ -396,27 +534,29 @@ def AG(X_train,
 #                                                                  population_size=10,
 #                                                                  prob_seleccion=0.5,
 #                                                                  prob_mutacion=0.2,
-#                                                                  escenario=1)
-
-#     # realiza las predicciones en el conjutno de prueba
-#     proba_test = bes_mod_entrenado.predict_proba(X_test)[:, 1]
-#     preds_test = bes_mod_entrenado.predict(X_test)
-
-#     # Calcula las metricas del modelo en el conjunto de prueba
-#     PR_auc = funciones.precision_recall_auc_score(Y_test, proba_test)
-#     ROC_auc = metrics.roc_auc_score(Y_test, proba_test)
-
-#     bAccuracy = metrics.balanced_accuracy_score(Y_test, preds_test)
-#     precision = metrics.precision_score(Y_test, preds_test)
-#     recall = metrics.recall_score(Y_test, preds_test)
-#     fscore = metrics.f1_score(Y_test, preds_test)
-
-#     logger.info("Desempeño en el conjunto de prueba:")
-#     logger.info(f"PR-AUC:{PR_auc}")
-#     logger.info(f"ROC-AUC:{ROC_auc}")
-#     logger.info(f"Balanced accuracy:{bAccuracy}")
-#     logger.info(f"Precision:{precision}")
-#     logger.info(f"Recall:{recall}")
-#     logger.info(f"F1 Score:{fscore}")
+#                                                                  escenario=1,
+#                                                                  BH = False,
+#                                                                  LS = True)
+#
+#    # realiza las predicciones en el conjutno de prueba
+#    proba_test = bes_mod_entrenado.predict_proba(X_test)[:, 1]
+#    preds_test = bes_mod_entrenado.predict(X_test)
+#
+#    # Calcula las metricas del modelo en el conjunto de prueba
+#    PR_auc = funciones.precision_recall_auc_score(Y_test, proba_test)
+#    ROC_auc = metrics.roc_auc_score(Y_test, proba_test)
+#
+#    bAccuracy = metrics.balanced_accuracy_score(Y_test, preds_test)
+#    precision = metrics.precision_score(Y_test, preds_test)
+#    recall = metrics.recall_score(Y_test, preds_test)
+#    fscore = metrics.f1_score(Y_test, preds_test)
+#
+#    logger.info("Desempeño en el conjunto de prueba:")
+#    logger.info(f"PR-AUC:{PR_auc}")
+#    logger.info(f"ROC-AUC:{ROC_auc}")
+#    logger.info(f"Balanced accuracy:{bAccuracy}")
+#    logger.info(f"Precision:{precision}")
+#    logger.info(f"Recall:{recall}")
+#    logger.info(f"F1 Score:{fscore}")
 
 # %%

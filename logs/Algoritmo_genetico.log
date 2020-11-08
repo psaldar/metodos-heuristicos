@@ -2089,3 +2089,452 @@
 2020-09-01 10:33:07,086 - 9896 - root - INFO - ************************************************************
 2020-09-01 10:33:07,086 - 9896 - root - INFO - La mejor solucion fue
 2020-09-01 10:33:07,086 - 9896 - root - INFO - {'layer_sizes': (54, 34, 119, 64), 'activation': 'identity', 'alpha': 1.3546419878259266, 'learning_rate_init': 0.0011047593639885867, 'fitness': 0.7841128029014315}
+2020-10-12 21:05:51,091 - 8644 - root - INFO - CARGA DE DATOS
+2020-10-12 21:06:56,591 - 8644 - root - INFO - ************************************************************
+2020-10-12 21:06:56,591 - 8644 - root - INFO - INICIA ALGORITMO GENETICO
+2020-10-12 21:06:56,592 - 8644 - root - INFO - ************************************************************
+2020-10-12 21:07:11,535 - 8644 - root - INFO - ************************************************************
+2020-10-12 21:07:11,536 - 8644 - root - INFO - INICIA ALGORITMO GENETICO
+2020-10-12 21:07:11,536 - 8644 - root - INFO - ************************************************************
+2020-10-12 21:08:12,633 - 8644 - root - INFO - generacion 0 de 5
+2020-10-12 21:53:41,778 - 5376 - root - INFO - CARGA DE DATOS
+2020-10-12 21:53:43,795 - 5376 - root - INFO - ************************************************************
+2020-10-12 21:53:43,796 - 5376 - root - INFO - INICIA ALGORITMO GENETICO
+2020-10-12 21:53:43,796 - 5376 - root - INFO - ************************************************************
+2020-10-12 21:54:23,542 - 5376 - root - INFO - generacion 0 de 5
+2020-10-12 21:55:13,694 - 5376 - root - INFO - generacion 1 de 5
+2020-10-12 21:55:50,536 - 5376 - root - INFO - generacion 2 de 5
+2020-10-12 21:56:34,872 - 9308 - root - INFO - CARGA DE DATOS
+2020-10-12 21:56:36,884 - 9308 - root - INFO - ************************************************************
+2020-10-12 21:56:36,884 - 9308 - root - INFO - INICIA ALGORITMO GENETICO
+2020-10-12 21:56:36,884 - 9308 - root - INFO - ************************************************************
+2020-10-12 21:57:16,858 - 9308 - root - INFO - generacion 0 de 5
+2020-10-12 21:58:09,375 - 9308 - root - INFO - Mejora la solucion con la busqueda exahustiva
+2020-10-12 21:58:14,309 - 9308 - root - INFO - Mejora la solucion con la busqueda exahustiva
+2020-10-12 21:58:45,960 - 9308 - root - INFO - Mejora la solucion con la busqueda exahustiva
+2020-10-12 21:58:50,316 - 9308 - root - INFO - Agrega a la poblacion el mejor individuo de la BH
+2020-10-12 21:58:50,318 - 9308 - root - INFO - generacion 1 de 5
+2020-10-12 22:00:12,842 - 9308 - root - INFO - generacion 2 de 5
+2020-10-12 22:01:41,518 - 9308 - root - INFO - generacion 3 de 5
+2020-10-12 22:03:22,038 - 9308 - root - INFO - generacion 4 de 5
+2020-10-12 22:05:04,984 - 9308 - root - INFO - ************************************************************
+2020-10-12 22:05:04,985 - 9308 - root - INFO - FIN ALGORITMO GENETICO: tiempo 508.0928 mins
+2020-10-12 22:05:04,985 - 9308 - root - INFO - ************************************************************
+2020-10-12 22:05:04,985 - 9308 - root - INFO - La mejor solucion fue
+2020-10-12 22:05:04,985 - 9308 - root - INFO - {'layer_sizes': (23, 1), 'activation': 'relu', 'alpha': 0.31792361654988777, 'learning_rate_init': 0.09460154462173086, 'fitness': 0.7755610094376393}
+2020-10-12 22:05:05,244 - 9308 - root - INFO - Desempeño en el conjunto de prueba:
+2020-10-12 22:05:05,245 - 9308 - root - INFO - PR-AUC:0.1375983661487728
+2020-10-12 22:05:05,245 - 9308 - root - INFO - ROC-AUC:0.7684720651688208
+2020-10-12 22:05:05,245 - 9308 - root - INFO - Balanced accuracy:0.6404737685324111
+2020-10-12 22:05:05,245 - 9308 - root - INFO - Precision:0.06435495153392626
+2020-10-12 22:05:05,245 - 9308 - root - INFO - Recall:0.4
+2020-10-12 22:05:05,245 - 9308 - root - INFO - F1 Score:0.11087199793406216
+2020-10-12 22:15:51,604 - 8740 - root - INFO - ************************************************************
+2020-10-12 22:15:51,604 - 8740 - root - INFO - INICIA ALGORITMO GENETICO
+2020-10-12 22:15:51,604 - 8740 - root - INFO - ************************************************************
+2020-10-12 22:16:33,045 - 8740 - root - INFO - generacion 0 de 5
+2020-10-12 22:17:17,813 - 8740 - root - INFO - Inicia busqueda exahustiva en la generacion al final de la generacion 0
+2020-10-12 22:18:30,149 - 8740 - root - INFO - generacion 1 de 5
+2020-10-12 22:19:02,626 - 8740 - root - INFO - Inicia busqueda exahustiva en la generacion al final de la generacion 1
+2020-10-12 22:20:15,846 - 8740 - root - INFO - generacion 2 de 5
+2020-10-12 22:20:50,357 - 8740 - root - INFO - Inicia busqueda exahustiva en la generacion al final de la generacion 2
+2020-10-12 22:22:02,382 - 8740 - root - INFO - generacion 3 de 5
+2020-10-12 22:22:33,441 - 8740 - root - INFO - Inicia busqueda exahustiva en la generacion al final de la generacion 3
+2020-10-12 22:23:46,338 - 8740 - root - INFO - generacion 4 de 5
+2020-10-12 22:24:19,768 - 8740 - root - INFO - Inicia busqueda exahustiva en la generacion al final de la generacion 4
+2020-10-12 22:25:39,185 - 8740 - root - INFO - ************************************************************
+2020-10-12 22:25:39,185 - 8740 - root - INFO - FIN ALGORITMO GENETICO: tiempo 587.5703 mins
+2020-10-12 22:25:39,185 - 8740 - root - INFO - ************************************************************
+2020-10-12 22:25:39,185 - 8740 - root - INFO - La mejor solucion fue
+2020-10-12 22:25:39,185 - 8740 - root - INFO - {'layer_sizes': (27, 24, 98), 'activation': 'identity', 'alpha': 0.13842451389998844, 'learning_rate_init': 0.09460154462173086, 'fitness': 0.7777040080141402}
+2020-10-16 15:23:45,610 - 13204 - root - INFO - ************************************************************
+2020-10-16 15:23:45,610 - 13204 - root - INFO - INICIA ALGORITMO GENETICO
+2020-10-16 15:23:45,610 - 13204 - root - INFO - ************************************************************
+2020-10-16 15:31:24,682 - 13204 - root - INFO - generacion 0 de 20
+2020-10-16 15:38:15,163 - 13204 - root - INFO - Inicia busqueda exahustiva en la generacion al final de la generacion 0
+2020-10-16 15:39:20,060 - 13204 - root - INFO - Mejora la solucion con la busqueda exahustiva: {'layer_sizes': (64,), 'activation': 'relu', 'alpha': 0.6403525606738166, 'learning_rate_init': 0.022013225747051824, 'fitness': 0.7802657758768613}
+2020-10-16 15:39:33,986 - 13204 - root - INFO - Encuentra mejor solucion en busqueda exahustiva
+2020-10-16 15:39:33,987 - 13204 - root - INFO - Agrega a la poblacion el mejor individuo de la BH
+2020-10-16 15:39:34,012 - 13204 - root - INFO - generacion 1 de 20
+2020-10-16 15:49:39,043 - 13204 - root - INFO - Inicia busqueda exahustiva en la generacion al final de la generacion 1
+2020-10-16 15:53:35,002 - 13204 - root - INFO - generacion 2 de 20
+2020-10-16 16:04:43,068 - 13204 - root - INFO - Inicia busqueda exahustiva en la generacion al final de la generacion 2
+2020-10-16 16:08:37,365 - 13204 - root - INFO - generacion 3 de 20
+2020-10-16 16:16:43,616 - 13204 - root - INFO - Inicia busqueda exahustiva en la generacion al final de la generacion 3
+2020-10-16 16:16:58,691 - 13204 - root - INFO - Mejora la solucion con la busqueda exahustiva: {'layer_sizes': (42, 118, 1, 1), 'activation': 'identity', 'alpha': 0.19486547618408442, 'learning_rate_init': 0.022013225747051824, 'fitness': 0.7825629806902091}
+2020-10-16 16:18:52,068 - 13204 - root - INFO - Encuentra mejor solucion en busqueda exahustiva
+2020-10-16 16:18:52,069 - 13204 - root - INFO - Agrega a la poblacion el mejor individuo de la BH
+2020-10-16 16:18:52,070 - 13204 - root - INFO - generacion 4 de 20
+2020-10-16 16:24:47,879 - 13204 - root - INFO - Inicia busqueda exahustiva en la generacion al final de la generacion 4
+2020-10-16 16:26:57,979 - 13204 - root - INFO - generacion 5 de 20
+2020-10-16 16:33:40,788 - 13204 - root - INFO - Inicia busqueda exahustiva en la generacion al final de la generacion 5
+2020-10-16 16:35:49,814 - 13204 - root - INFO - generacion 6 de 20
+2020-10-16 16:42:12,788 - 13204 - root - INFO - Inicia busqueda exahustiva en la generacion al final de la generacion 6
+2020-10-16 16:44:21,621 - 13204 - root - INFO - generacion 7 de 20
+2020-10-16 16:49:38,045 - 13204 - root - INFO - Inicia busqueda exahustiva en la generacion al final de la generacion 7
+2020-10-16 16:51:49,302 - 13204 - root - INFO - generacion 8 de 20
+2020-10-16 16:58:02,006 - 13204 - root - INFO - Inicia busqueda exahustiva en la generacion al final de la generacion 8
+2020-10-16 17:00:11,496 - 13204 - root - INFO - generacion 9 de 20
+2020-10-16 17:05:04,367 - 13204 - root - INFO - Inicia busqueda exahustiva en la generacion al final de la generacion 9
+2020-10-16 17:07:00,578 - 13204 - root - INFO - generacion 10 de 20
+2020-10-16 17:11:15,322 - 13204 - root - INFO - Inicia busqueda exahustiva en la generacion al final de la generacion 10
+2020-10-16 17:13:11,822 - 13204 - root - INFO - generacion 11 de 20
+2020-10-16 17:16:52,988 - 13204 - root - INFO - Inicia busqueda exahustiva en la generacion al final de la generacion 11
+2020-10-16 17:18:49,475 - 13204 - root - INFO - generacion 12 de 20
+2020-10-16 17:22:43,938 - 13204 - root - INFO - Inicia busqueda exahustiva en la generacion al final de la generacion 12
+2020-10-16 17:24:40,207 - 13204 - root - INFO - generacion 13 de 20
+2020-10-16 17:28:39,840 - 13204 - root - INFO - Inicia busqueda exahustiva en la generacion al final de la generacion 13
+2020-10-16 17:30:36,073 - 13204 - root - INFO - generacion 14 de 20
+2020-10-16 17:34:34,847 - 13204 - root - INFO - Inicia busqueda exahustiva en la generacion al final de la generacion 14
+2020-10-16 17:36:31,000 - 13204 - root - INFO - generacion 15 de 20
+2020-10-16 17:40:23,328 - 13204 - root - INFO - Inicia busqueda exahustiva en la generacion al final de la generacion 15
+2020-10-16 17:42:19,678 - 13204 - root - INFO - generacion 16 de 20
+2020-10-16 17:46:00,909 - 13204 - root - INFO - Inicia busqueda exahustiva en la generacion al final de la generacion 16
+2020-10-16 17:47:57,366 - 13204 - root - INFO - generacion 17 de 20
+2020-10-16 17:51:54,915 - 13204 - root - INFO - Inicia busqueda exahustiva en la generacion al final de la generacion 17
+2020-10-16 17:53:50,753 - 13204 - root - INFO - generacion 18 de 20
+2020-10-16 17:57:42,137 - 13204 - root - INFO - Inicia busqueda exahustiva en la generacion al final de la generacion 18
+2020-10-16 17:59:38,283 - 13204 - root - INFO - generacion 19 de 20
+2020-10-16 18:03:18,751 - 13204 - root - INFO - Inicia busqueda exahustiva en la generacion al final de la generacion 19
+2020-10-16 18:05:18,331 - 13204 - root - INFO - ************************************************************
+2020-10-16 18:05:18,331 - 13204 - root - INFO - FIN ALGORITMO GENETICO: tiempo 9692.711 mins
+2020-10-16 18:05:18,332 - 13204 - root - INFO - ************************************************************
+2020-10-16 18:05:18,332 - 13204 - root - INFO - La mejor solucion fue
+2020-10-16 18:05:18,332 - 13204 - root - INFO - {'layer_sizes': (42, 118, 1, 1), 'activation': 'identity', 'alpha': 0.19486547618408442, 'learning_rate_init': 0.022013225747051824, 'fitness': 0.7825629806902091}
+2020-11-02 15:52:55,740 - 22268 - root - INFO - ************************************************************
+2020-11-02 15:52:55,772 - 22268 - root - INFO - INICIA ALGORITMO GENETICO
+2020-11-02 15:52:55,772 - 22268 - root - INFO - ************************************************************
+2020-11-02 15:53:40,138 - 7124 - root - INFO - CARGA DE DATOS
+2020-11-02 15:54:48,052 - 7124 - root - INFO - ************************************************************
+2020-11-02 15:54:48,052 - 7124 - root - INFO - INICIA ALGORITMO GENETICO
+2020-11-02 15:54:48,052 - 7124 - root - INFO - ************************************************************
+2020-11-02 17:32:16,412 - 6068 - root - INFO - CARGA DE DATOS
+2020-11-02 17:32:18,480 - 6068 - root - INFO - ************************************************************
+2020-11-02 17:32:18,481 - 6068 - root - INFO - INICIA ALGORITMO GENETICO
+2020-11-02 17:32:18,481 - 6068 - root - INFO - ************************************************************
+2020-11-02 17:32:58,095 - 6068 - root - INFO - generacion 0 de 5
+2020-11-02 17:33:47,096 - 6068 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 0
+2020-11-02 17:35:23,218 - 22212 - root - INFO - CARGA DE DATOS
+2020-11-02 17:35:25,291 - 22212 - root - INFO - ************************************************************
+2020-11-02 17:35:25,291 - 22212 - root - INFO - INICIA ALGORITMO GENETICO
+2020-11-02 17:35:25,291 - 22212 - root - INFO - ************************************************************
+2020-11-02 17:36:05,712 - 22212 - root - INFO - generacion 0 de 5
+2020-11-02 17:36:54,023 - 22212 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 0
+2020-11-02 17:36:57,686 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:37:00,614 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:37:04,576 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:37:07,792 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:37:11,651 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:37:14,939 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:37:18,910 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:37:23,043 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:37:26,295 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:37:28,804 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:37:30,992 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:37:34,874 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:37:37,539 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:37:39,909 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:37:42,623 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:37:45,762 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:37:48,343 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:37:51,418 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:37:55,096 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:37:58,874 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:38:01,801 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:38:04,719 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:38:07,422 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:38:10,154 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:38:13,594 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:38:17,047 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:38:19,944 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:38:23,527 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:38:26,287 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:38:29,188 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:38:32,051 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:38:35,858 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:38:39,545 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:38:43,206 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:38:45,435 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:38:45,437 - 22212 - root - INFO - generacion 1 de 5
+2020-11-02 17:39:21,613 - 22212 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 1
+2020-11-02 17:39:24,560 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:39:27,370 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:39:30,306 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:39:32,983 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:39:35,783 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:39:39,161 - 22212 - root - INFO - Mejora la solucion con la busqueda local: {'layer_sizes': (27, 24, 98), 'activation': 'identity', 'alpha': 0.400096, 'learning_rate_init': 0.12088000000000002, 'fitness': 0.777018441931572}
+2020-11-02 17:39:39,161 - 22212 - root - INFO - Encuentra mejor solucion en busqueda local
+2020-11-02 17:39:39,161 - 22212 - root - INFO - Agrega a la poblacion el mejor individuo de LS
+2020-11-02 17:39:39,162 - 22212 - root - INFO - generacion 2 de 5
+2020-11-02 17:40:07,894 - 22212 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 2
+2020-11-02 17:40:10,712 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:40:13,434 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:40:16,218 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:40:19,265 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:40:21,973 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:40:25,347 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:40:29,009 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:40:32,391 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:40:35,533 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:40:38,432 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:40:41,456 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:40:45,666 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:40:49,738 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:40:54,254 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:40:58,224 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:41:01,399 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:41:04,377 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:41:08,665 - 22212 - root - INFO - Mejora la solucion con la busqueda local: {'layer_sizes': (23, 24, 98), 'activation': 'identity', 'alpha': 0.400096, 'learning_rate_init': 0.16084, 'fitness': 0.7783508525784879}
+2020-11-02 17:41:08,666 - 22212 - root - INFO - Encuentra mejor solucion en busqueda local
+2020-11-02 17:41:08,666 - 22212 - root - INFO - Agrega a la poblacion el mejor individuo de LS
+2020-11-02 17:41:08,667 - 22212 - root - INFO - generacion 3 de 5
+2020-11-02 17:41:44,510 - 22212 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 3
+2020-11-02 17:41:48,266 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:41:52,175 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:41:56,178 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:41:59,262 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:42:02,328 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:42:06,683 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:42:11,140 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:42:15,232 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:42:18,578 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:42:22,022 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:42:25,507 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:42:30,943 - 22212 - root - INFO - Mejora la solucion con la busqueda local: {'layer_sizes': (23, 24, 98), 'activation': 'identity', 'alpha': 0.400096, 'learning_rate_init': 0.2008, 'fitness': 0.7801408025895616}
+2020-11-02 17:42:30,943 - 22212 - root - INFO - Encuentra mejor solucion en busqueda local
+2020-11-02 17:42:30,943 - 22212 - root - INFO - Agrega a la poblacion el mejor individuo de LS
+2020-11-02 17:42:30,945 - 22212 - root - INFO - generacion 4 de 5
+2020-11-02 17:43:14,894 - 22212 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 4
+2020-11-02 17:43:19,237 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:43:23,791 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:43:27,286 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:43:31,043 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:43:34,281 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:43:39,255 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:43:43,843 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:43:47,911 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:43:51,481 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:43:55,180 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:43:59,062 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:44:04,234 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:44:09,608 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:44:13,860 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:44:18,482 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:44:23,065 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:44:28,001 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:44:33,616 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:44:38,090 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:44:42,436 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:44:46,701 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:44:50,561 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:44:55,731 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:45:02,199 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:45:07,003 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:45:11,557 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:45:16,447 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:45:21,024 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:45:26,134 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:45:32,305 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:45:37,234 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:45:42,091 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:45:47,321 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:45:51,889 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:45:57,113 - 22212 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 17:46:03,020 - 22212 - root - INFO - ************************************************************
+2020-11-02 17:46:03,020 - 22212 - root - INFO - FIN ALGORITMO GENETICO: tiempo 637.7221 mins
+2020-11-02 17:46:03,020 - 22212 - root - INFO - ************************************************************
+2020-11-02 17:46:03,021 - 22212 - root - INFO - La mejor solucion fue
+2020-11-02 17:46:03,021 - 22212 - root - INFO - {'layer_sizes': (23, 24, 98), 'activation': 'identity', 'alpha': 0.400096, 'learning_rate_init': 0.2008, 'fitness': 0.7801408025895616}
+2020-11-02 17:46:03,332 - 22212 - root - INFO - Desempeño en el conjunto de prueba:
+2020-11-02 17:46:03,332 - 22212 - root - INFO - PR-AUC:0.060347186794529786
+2020-11-02 17:46:03,333 - 22212 - root - INFO - ROC-AUC:0.7702682892426367
+2020-11-02 17:46:03,333 - 22212 - root - INFO - Balanced accuracy:0.637323098725431
+2020-11-02 17:46:03,333 - 22212 - root - INFO - Precision:0.06470891293147862
+2020-11-02 17:46:03,333 - 22212 - root - INFO - Recall:0.39006211180124223
+2020-11-02 17:46:03,333 - 22212 - root - INFO - F1 Score:0.1110030932390632
+2020-11-02 17:47:48,055 - 11548 - root - INFO - ************************************************************
+2020-11-02 17:47:48,056 - 11548 - root - INFO - INICIA ALGORITMO GENETICO
+2020-11-02 17:47:48,056 - 11548 - root - INFO - ************************************************************
+2020-11-02 17:53:40,730 - 11548 - root - INFO - generacion 0 de 20
+2020-11-02 17:58:50,726 - 11548 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 0
+2020-11-02 18:01:52,883 - 11548 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 18:01:52,884 - 11548 - root - INFO - generacion 1 de 20
+2020-11-02 18:07:51,161 - 11548 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 1
+2020-11-02 18:10:51,529 - 11548 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 18:10:51,530 - 11548 - root - INFO - generacion 2 de 20
+2020-11-02 18:19:11,031 - 11548 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 2
+2020-11-02 18:21:41,320 - 11548 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 18:21:41,321 - 11548 - root - INFO - generacion 3 de 20
+2020-11-02 18:29:29,098 - 11548 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 3
+2020-11-02 18:32:03,926 - 11548 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 18:32:03,927 - 11548 - root - INFO - generacion 4 de 20
+2020-11-02 18:38:55,104 - 11548 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 4
+2020-11-02 18:41:26,767 - 11548 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 18:41:26,768 - 11548 - root - INFO - generacion 5 de 20
+2020-11-02 18:48:47,045 - 11548 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 5
+2020-11-02 18:51:18,226 - 11548 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 18:51:18,227 - 11548 - root - INFO - generacion 6 de 20
+2020-11-02 18:58:55,500 - 11548 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 6
+2020-11-02 19:01:37,240 - 11548 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 19:01:37,241 - 11548 - root - INFO - generacion 7 de 20
+2020-11-02 19:09:48,061 - 11548 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 7
+2020-11-02 19:12:25,050 - 11548 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 19:12:25,051 - 11548 - root - INFO - generacion 8 de 20
+2020-11-02 19:23:23,620 - 11548 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 8
+2020-11-02 19:25:57,105 - 11548 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 19:25:57,105 - 11548 - root - INFO - generacion 9 de 20
+2020-11-02 19:37:29,018 - 11548 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 9
+2020-11-02 19:40:01,131 - 11548 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 19:40:01,131 - 11548 - root - INFO - generacion 10 de 20
+2020-11-02 19:54:11,803 - 11548 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 10
+2020-11-02 19:56:43,989 - 11548 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 19:56:43,990 - 11548 - root - INFO - generacion 11 de 20
+2020-11-02 20:10:45,089 - 11548 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 11
+2020-11-02 20:13:59,469 - 11548 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 20:13:59,470 - 11548 - root - INFO - generacion 12 de 20
+2020-11-02 20:28:23,233 - 11548 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 12
+2020-11-02 20:31:39,207 - 11548 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 20:31:39,208 - 11548 - root - INFO - generacion 13 de 20
+2020-11-02 20:47:12,418 - 11548 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 13
+2020-11-02 20:50:45,833 - 11548 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 20:50:45,834 - 11548 - root - INFO - generacion 14 de 20
+2020-11-02 21:04:42,634 - 11548 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 14
+2020-11-02 21:07:58,929 - 11548 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 21:07:58,930 - 11548 - root - INFO - generacion 15 de 20
+2020-11-02 21:21:57,589 - 11548 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 15
+2020-11-02 21:24:31,838 - 11548 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 21:24:31,839 - 11548 - root - INFO - generacion 16 de 20
+2020-11-02 21:40:49,493 - 11548 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 16
+2020-11-02 21:43:27,734 - 11548 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 21:43:27,735 - 11548 - root - INFO - generacion 17 de 20
+2020-11-02 22:00:05,878 - 11548 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 17
+2020-11-02 22:02:54,122 - 11548 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 22:02:54,123 - 11548 - root - INFO - generacion 18 de 20
+2020-11-02 22:22:43,453 - 11548 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 18
+2020-11-02 22:25:25,348 - 11548 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 22:25:25,349 - 11548 - root - INFO - generacion 19 de 20
+2020-11-02 22:42:26,883 - 11548 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 19
+2020-11-02 22:45:19,598 - 11548 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-02 22:45:39,577 - 11548 - root - INFO - ************************************************************
+2020-11-02 22:45:39,577 - 11548 - root - INFO - FIN ALGORITMO GENETICO: tiempo 17871.513 mins
+2020-11-02 22:45:39,577 - 11548 - root - INFO - ************************************************************
+2020-11-02 22:45:39,577 - 11548 - root - INFO - La mejor solucion fue
+2020-11-02 22:45:39,577 - 11548 - root - INFO - {'layer_sizes': (19, 114, 62), 'activation': 'tanh', 'alpha': 1.3422882364300124, 'learning_rate_init': 0.001, 'fitness': 0.785376326734016}
+2020-11-07 15:50:21,264 - 25140 - root - INFO - CARGA DE DATOS
+2020-11-07 15:50:23,412 - 25140 - root - INFO - ************************************************************
+2020-11-07 15:50:23,412 - 25140 - root - INFO - INICIA ALGORITMO GENETICO
+2020-11-07 15:50:23,412 - 25140 - root - INFO - ************************************************************
+2020-11-07 15:51:01,849 - 25140 - root - INFO - generacion 0 de 5
+2020-11-07 15:51:49,283 - 25140 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 0
+2020-11-07 15:52:41,412 - 25140 - root - INFO - Mejora la solucion con la busqueda local: {'layer_sizes': (23,), 'activation': 'relu', 'alpha': 1.0000900000000001, 'learning_rate_init': 0.001, 'fitness': 0.7780881445102988}
+2020-11-07 15:52:41,413 - 25140 - root - INFO - Encuentra mejor solucion en busqueda local
+2020-11-07 15:52:41,413 - 25140 - root - INFO - Agrega a la poblacion el mejor individuo de LS
+2020-11-07 15:52:41,415 - 25140 - root - INFO - generacion 1 de 5
+2020-11-07 15:53:23,943 - 25140 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 1
+2020-11-07 15:54:36,122 - 25140 - root - INFO - Mejora la solucion con la busqueda local: {'layer_sizes': (27,), 'activation': 'relu', 'alpha': 1.5000850000000001, 'learning_rate_init': 0.001, 'fitness': 0.7824758936940002}
+2020-11-07 15:54:36,123 - 25140 - root - INFO - Encuentra mejor solucion en busqueda local
+2020-11-07 15:54:36,123 - 25140 - root - INFO - Agrega a la poblacion el mejor individuo de LS
+2020-11-07 15:54:36,124 - 25140 - root - INFO - generacion 2 de 5
+2020-11-07 15:56:41,987 - 25140 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 2
+2020-11-07 15:57:33,090 - 25140 - root - INFO - Mejora la solucion con la busqueda local: {'layer_sizes': (27,), 'activation': 'relu', 'alpha': 2.00008, 'learning_rate_init': 0.001, 'fitness': 0.7830381472315853}
+2020-11-07 15:57:33,091 - 25140 - root - INFO - Encuentra mejor solucion en busqueda local
+2020-11-07 15:57:33,091 - 25140 - root - INFO - Agrega a la poblacion el mejor individuo de LS
+2020-11-07 15:57:33,091 - 25140 - root - INFO - generacion 3 de 5
+2020-11-07 15:58:58,338 - 25140 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 3
+2020-11-07 16:00:56,222 - 25140 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-07 16:00:56,223 - 25140 - root - INFO - generacion 4 de 5
+2020-11-07 16:02:08,628 - 25140 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 4
+2020-11-07 16:04:05,999 - 25140 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-07 16:04:13,565 - 25140 - root - INFO - ************************************************************
+2020-11-07 16:04:13,566 - 25140 - root - INFO - FIN ALGORITMO GENETICO: tiempo 830.1496 mins
+2020-11-07 16:04:13,566 - 25140 - root - INFO - ************************************************************
+2020-11-07 16:04:13,566 - 25140 - root - INFO - La mejor solucion fue
+2020-11-07 16:04:13,566 - 25140 - root - INFO - {'layer_sizes': (27,), 'activation': 'relu', 'alpha': 2.00008, 'learning_rate_init': 0.001, 'fitness': 0.7830381472315853}
+2020-11-07 16:04:13,845 - 25140 - root - INFO - Desempeño en el conjunto de prueba:
+2020-11-07 16:04:13,845 - 25140 - root - INFO - PR-AUC:0.06428461897501757
+2020-11-07 16:04:13,845 - 25140 - root - INFO - ROC-AUC:0.7749450758434329
+2020-11-07 16:04:13,845 - 25140 - root - INFO - Balanced accuracy:0.640072473508542
+2020-11-07 16:04:13,845 - 25140 - root - INFO - Precision:0.06850816617340787
+2020-11-07 16:04:13,845 - 25140 - root - INFO - Recall:0.38819875776397517
+2020-11-07 16:04:13,845 - 25140 - root - INFO - F1 Score:0.11646324420013043
+2020-11-07 16:17:12,334 - 520 - root - INFO - ************************************************************
+2020-11-07 16:17:12,334 - 520 - root - INFO - INICIA ALGORITMO GENETICO
+2020-11-07 16:17:12,335 - 520 - root - INFO - ************************************************************
+2020-11-07 16:22:56,321 - 520 - root - INFO - generacion 0 de 20
+2020-11-07 16:27:54,658 - 520 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 0
+2020-11-07 16:28:28,452 - 520 - root - INFO - Mejora la solucion con la busqueda local: {'layer_sizes': (64,), 'activation': 'logistic', 'alpha': 0.0001, 'learning_rate_init': 0.001, 'fitness': 0.7818860291014109}
+2020-11-07 16:28:28,452 - 520 - root - INFO - Encuentra mejor solucion en busqueda local
+2020-11-07 16:28:28,453 - 520 - root - INFO - Agrega a la poblacion el mejor individuo de LS
+2020-11-07 16:28:28,454 - 520 - root - INFO - generacion 1 de 20
+2020-11-07 16:29:20,472 - 21732 - root - INFO - ************************************************************
+2020-11-07 16:29:20,472 - 21732 - root - INFO - INICIA ALGORITMO GENETICO
+2020-11-07 16:29:20,472 - 21732 - root - INFO - ************************************************************
+2020-11-07 16:35:17,267 - 21732 - root - INFO - generacion 0 de 20
+2020-11-07 16:40:25,550 - 21732 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 0
+2020-11-07 16:41:16,184 - 21732 - root - INFO - Mejora la solucion con la busqueda local: {'layer_sizes': (64,), 'activation': 'logistic', 'alpha': 0.5000950000000001, 'learning_rate_init': 0.001, 'fitness': 0.7807811401518505}
+2020-11-07 16:41:16,185 - 21732 - root - INFO - Encuentra mejor solucion en busqueda local
+2020-11-07 16:41:16,185 - 21732 - root - INFO - Agrega a la poblacion el mejor individuo de LS
+2020-11-07 16:41:16,186 - 21732 - root - INFO - generacion 1 de 20
+2020-11-07 16:49:21,331 - 21732 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 1
+2020-11-07 16:52:19,022 - 21732 - root - INFO - Mejora la solucion con la busqueda local: {'layer_sizes': (64, 24, 98), 'activation': 'identity', 'alpha': 0.0001, 'learning_rate_init': 0.2008, 'fitness': 0.7831751827525519}
+2020-11-07 16:52:19,023 - 21732 - root - INFO - Encuentra mejor solucion en busqueda local
+2020-11-07 16:52:19,023 - 21732 - root - INFO - Agrega a la poblacion el mejor individuo de LS
+2020-11-07 16:52:19,024 - 21732 - root - INFO - generacion 2 de 20
+2020-11-07 17:01:33,233 - 21732 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 2
+2020-11-07 17:04:08,366 - 21732 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-07 17:04:08,367 - 21732 - root - INFO - generacion 3 de 20
+2020-11-07 17:13:19,224 - 21732 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 3
+2020-11-07 17:15:52,815 - 21732 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-07 17:15:52,816 - 21732 - root - INFO - generacion 4 de 20
+2020-11-07 17:27:04,921 - 21732 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 4
+2020-11-07 17:29:38,761 - 21732 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-07 17:29:38,762 - 21732 - root - INFO - generacion 5 de 20
+2020-11-07 17:43:44,079 - 21732 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 5
+2020-11-07 17:46:18,948 - 21732 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-07 17:46:18,949 - 21732 - root - INFO - generacion 6 de 20
+2020-11-07 17:57:22,871 - 21732 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 6
+2020-11-07 17:59:56,671 - 21732 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-07 17:59:56,672 - 21732 - root - INFO - generacion 7 de 20
+2020-11-07 18:09:43,819 - 21732 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 7
+2020-11-07 18:12:18,884 - 21732 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-07 18:12:18,885 - 21732 - root - INFO - generacion 8 de 20
+2020-11-07 18:21:50,184 - 21732 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 8
+2020-11-07 18:24:23,564 - 21732 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-07 18:24:23,565 - 21732 - root - INFO - generacion 9 de 20
+2020-11-07 18:32:37,326 - 21732 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 9
+2020-11-07 18:35:12,254 - 21732 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-07 18:35:12,255 - 21732 - root - INFO - generacion 10 de 20
+2020-11-07 18:42:28,612 - 21732 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 10
+2020-11-07 18:44:59,489 - 21732 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-07 18:44:59,490 - 21732 - root - INFO - generacion 11 de 20
+2020-11-07 18:52:12,393 - 21732 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 11
+2020-11-07 18:54:43,615 - 21732 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-07 18:54:43,616 - 21732 - root - INFO - generacion 12 de 20
+2020-11-07 18:59:38,081 - 21732 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 12
+2020-11-07 19:02:18,598 - 21732 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-07 19:02:18,599 - 21732 - root - INFO - generacion 13 de 20
+2020-11-07 19:05:51,694 - 21732 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 13
+2020-11-07 19:08:32,002 - 21732 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-07 19:08:32,003 - 21732 - root - INFO - generacion 14 de 20
+2020-11-07 19:12:10,456 - 21732 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 14
+2020-11-07 19:14:49,767 - 21732 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-07 19:14:49,768 - 21732 - root - INFO - generacion 15 de 20
+2020-11-07 19:18:12,238 - 21732 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 15
+2020-11-07 19:20:52,879 - 21732 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-07 19:20:52,880 - 21732 - root - INFO - generacion 16 de 20
+2020-11-07 19:24:17,993 - 21732 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 16
+2020-11-07 19:26:57,667 - 21732 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-07 19:26:57,668 - 21732 - root - INFO - generacion 17 de 20
+2020-11-07 19:30:19,534 - 21732 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 17
+2020-11-07 19:32:59,434 - 21732 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-07 19:32:59,435 - 21732 - root - INFO - generacion 18 de 20
+2020-11-07 19:36:26,535 - 21732 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 18
+2020-11-07 19:39:06,306 - 21732 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-07 19:39:06,307 - 21732 - root - INFO - generacion 19 de 20
+2020-11-07 19:42:30,253 - 21732 - root - INFO - Inicia busqueda local en la generacion al final de la generacion 19
+2020-11-07 19:45:10,772 - 21732 - root - INFO - NO HAY MEJORA EN EL VECINDARIO
+2020-11-07 19:45:14,955 - 21732 - root - INFO - ************************************************************
+2020-11-07 19:45:14,955 - 21732 - root - INFO - FIN ALGORITMO GENETICO: tiempo 11754.4773 mins
+2020-11-07 19:45:14,955 - 21732 - root - INFO - ************************************************************
+2020-11-07 19:45:14,955 - 21732 - root - INFO - La mejor solucion fue
+2020-11-07 19:45:14,956 - 21732 - root - INFO - {'layer_sizes': (81, 24, 98), 'activation': 'identity', 'alpha': 0.00015046509907209833, 'learning_rate_init': 0.2008, 'fitness': 0.7834564114967499}
