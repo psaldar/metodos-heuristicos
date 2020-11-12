@@ -46,7 +46,8 @@ best_mod, best_score, bes_mod_entrenado, historia_score = AG(X_train,
                                                               escenario=1,
                                                               iteracion = 0,
                                                               desc = 'busquedaExahustiva',
-                                                              BH = True)
+                                                              BH = True,
+                                                              bin_cont = False)
 
 time_f = (time.time()-time_ini)/60
 

@@ -45,9 +45,11 @@ best_mod, best_score, bes_mod_entrenado, historia_score = AG(X_train,
                                                               prob_mutacion=0.3,
                                                               escenario=1,
                                                               iteracion = 0,
-                                                              desc = 'busquedaLocal',
+                                                              desc = 'busquedaLocal_dosDirecciones',
                                                               BH = False,
-                                                              LS = True)
+                                                              LS = True, 
+                                                              bin_cont = False,
+                                                              vec_size = 5) ### vec_size = 8 para el otro escenario
 
 time_f = (time.time()-time_ini)/60
 
@@ -58,5 +60,5 @@ result = {'mod': best_mod,
           'historia': historia_score}
 
 
-with open(f'../data/output/resultado_LS.json', 'w') as json_file:
+with open(f'../data/output/resultado_dosDirecciones.json', 'w') as json_file:
     json.dump(result, json_file)

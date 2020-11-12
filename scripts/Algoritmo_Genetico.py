@@ -98,17 +98,17 @@ def get_bestPoblacion(fitness, poblacion, cant_seleccion):
     return best_pop
 
 
-def crossover(X, Y, X_val, Y_val, k, padre_1a, padre_2a):
+def crossover(X, Y, X_val, Y_val, k, padre_1a, padre_2a, bin_cont = False):
     ### Cruce por dos puntos
 
     padre_1 = padre_1a.copy()
     padre_2 = padre_2a.copy()
 
-    array_p1 = funciones.sol2array(padre_1)
-    array_p2 = funciones.sol2array(padre_2)
+    array_p1 = funciones.sol2array(padre_1, bin_cont)
+    array_p2 = funciones.sol2array(padre_2, bin_cont)
 
-    array_cruce1 = np.zeros(len(array_p1))
-    array_cruce2 = np.zeros(len(array_p1))
+    array_cruce1 = list(np.zeros(len(array_p1)))
+    array_cruce2 = list(np.zeros(len(array_p1)))
 
     ### Encuentro los dos puntos en los cuales se hace el cruce
     aa = -1
@@ -135,23 +135,24 @@ def crossover(X, Y, X_val, Y_val, k, padre_1a, padre_2a):
             array_cruce1[i] = array_p1[i]
             array_cruce2[i] = array_p2[i]
 
-    hijo_1 = funciones.array2sol(array_cruce1)
-    hijo_2 = funciones.array2sol(array_cruce2)
+    hijo_1 = funciones.array2sol(array_cruce1, bin_cont)
+    hijo_2 = funciones.array2sol(array_cruce2, bin_cont)
 
     _, score_h1 = funciones.entrenar_NN(X, Y, X_val, Y_val, k, hijo_1)
     _, score_h2 = funciones.entrenar_NN(X, Y, X_val, Y_val, k, hijo_2)
 
     if score_h1 >= score_h2:
         best_h = hijo_1
-        hijo_1['fitness'] = score_h1
+        best_h['fitness'] = score_h1
     else:
         best_h = hijo_2
-        hijo_2['fitness'] = score_h2
+        best_h['fitness'] = score_h2
 
     return best_h
 
 
-def mutacion(hijo_a, min_lay, max_lay, min_neu, max_neu, min_alpha, max_alpha, min_lr, max_lr, escenario=1):
+def mutacion(hijo_a, min_lay, max_lay, min_neu, max_neu, min_alpha, max_alpha, 
+             min_lr, max_lr, escenario=1,bin_cont = False):
 
     hijo = hijo_a.copy()
     ops = ["layer_sizes", "activation", "alpha", "learning_rate_init"]
@@ -170,10 +171,10 @@ def mutacion(hijo_a, min_lay, max_lay, min_neu, max_neu, min_alpha, max_alpha, m
             hijo["activation"] = funciones.change_activation(hijo)
 
         elif gen == "alpha":
-            hijo["alpha"] = funciones.change_alpha(hijo, min_alpha, max_alpha)
+            hijo["alpha"], hijo["alpha_bin"] = funciones.change_alpha(hijo, min_alpha, max_alpha, bin_cont = bin_cont)
 
         else:
-            hijo["learning_rate_init"] = funciones.change_learningRate(hijo, min_lr, max_lr)
+            hijo["learning_rate_init"], hijo["learning_rate_init_bin"] = funciones.change_learningRate(hijo, min_lr, max_lr, bin_cont = bin_cont)
     elif escenario == 2:
         ### Este escenario le asigna una probabilidad de mutacion a cada hiperparametro
         probabilidades = [0.7, 0.6, 0.4, 0.4]
@@ -192,11 +193,11 @@ def mutacion(hijo_a, min_lay, max_lay, min_neu, max_neu, min_alpha, max_alpha, m
 
         ### alpha
         if random.random() < probabilidades[2]:
-            hijo["alpha"] = funciones.change_alpha(hijo, min_alpha, max_alpha)
+            hijo["alpha"], hijo["alpha_bin"] = funciones.change_alpha(hijo, min_alpha, max_alpha, bin_cont = bin_cont)
 
         ### Learning rate
         if random.random() < probabilidades[3]:
-            hijo["learning_rate_init"] = funciones.change_learningRate(hijo, min_lr, max_lr)
+            hijo["learning_rate_init"], hijo["learning_rate_init_bin"] = funciones.change_learningRate(hijo, min_lr, max_lr, bin_cont = bin_cont)
 
     elif escenario == 3:
         ### Este escenario selecciona de forma aleatoria uno de los 4 hiperparametros a variar.
@@ -216,10 +217,10 @@ def mutacion(hijo_a, min_lay, max_lay, min_neu, max_neu, min_alpha, max_alpha, m
             hijo["activation"] = funciones.change_activation(hijo)
 
         elif gen == "alpha":
-            hijo["alpha"] = funciones.change_alpha(hijo, min_alpha, max_alpha)
+            hijo["alpha"], hijo["alpha_bin"] = funciones.change_alpha(hijo, min_alpha, max_alpha, bin_cont = bin_cont)
 
         else:
-            hijo["learning_rate_init"] = funciones.change_learningRate(hijo, min_lr, max_lr)
+            hijo["learning_rate_init"], hijo["learning_rate_init_bin"] = funciones.change_learningRate(hijo, min_lr, max_lr, bin_cont = bin_cont)
 
     return hijo
 
@@ -279,7 +280,8 @@ def busqueda_exahustiva(X_train, Y_train, X_val, Y_val, k, best_mod):
     return best_sol
 
 def busqueda_local(X_train, Y_train, X_val, Y_val, k, min_alpha, max_alpha,
-                                min_lr, max_lr, best_mod, vec_size =5):
+                                min_lr, max_lr, best_mod, vec_size =5, 
+                                bin_cont = False):
     ### inicializo soluciones a considerar
     best_sol = best_mod.copy()    
        
@@ -305,28 +307,53 @@ def busqueda_local(X_train, Y_train, X_val, Y_val, k, min_alpha, max_alpha,
     bin_lr = funciones.binarize_parameter(lr, lr_list)
     bin_alpha = funciones.binarize_parameter(alpha, alpha_list)
     
-    ### creacion del vecindario. 
-    vecindario = funciones.create_neighborhood(bin_lr, bin_alpha, vec_size)
-    
-    ### iterar sobre el vecindario
-    for vecino in vecindario:
-        lr_vecino = vecino[0]
-        alpha_vecino = vecino[1]
-    
-        new_sol = best_mod.copy()
-        new_sol['learning_rate_init'] = lr_list[lr_vecino==1][0]
-        new_sol['alpha'] = alpha_list[alpha_vecino==1][0]   
+
+    if bin_cont:
+        logger.info('Entra a bin cont')
+        ### creacion del vecindario. 
+        vecindario = funciones.create_neighborhood(best_mod['learning_rate_init_bin'], best_mod['alpha_bin'], vec_size, bin_cont)
+        ### iterar sobre el vecindario
+        for vecino in vecindario:
+            lr_vecino = vecino[0]
+            alpha_vecino = vecino[1]
         
-        ### obtengo el fitness del vecino en la iteracion
-        _, score = funciones.entrenar_NN(X_train, Y_train, X_val, Y_val, k, new_sol)
-        new_sol["fitness"] = score  
+            new_sol = best_mod.copy()
+            new_sol['learning_rate_init_bin'] = lr_vecino
+            new_sol['learning_rate_init'] = funciones.bin2cont(lr_vecino, 1)
+            new_sol['alpha_bin'] = alpha_vecino
+            new_sol['alpha'] = funciones.bin2cont(alpha_vecino, 10)   
+            
+            ### obtengo el fitness del vecino en la iteracion
+            _, score = funciones.entrenar_NN(X_train, Y_train, X_val, Y_val, k, new_sol)
+            new_sol["fitness"] = score  
+            
+            ### conserva el primer vecino que mejore la FO
+            if best_sol['fitness']< new_sol["fitness"]:
+                best_sol = new_sol.copy()
+                logger.info(f'Mejora la solucion con la busqueda local: {best_sol}')
+                print('Mejora')
+                return best_sol        
+    else:
+        vecindario = funciones.create_neighborhood(bin_lr, bin_alpha, vec_size, bin_cont)
+        ### iterar sobre el vecindario
+        for vecino in vecindario:
+            lr_vecino = vecino[0]
+            alpha_vecino = vecino[1]
         
-        ### conserva el primer vecino que mejore la FO
-        if best_sol['fitness']< new_sol["fitness"]:
-            best_sol = new_sol.copy()
-            logger.info(f'Mejora la solucion con la busqueda local: {best_sol}')
-            print('Mejora')
-            return best_sol
+            new_sol = best_mod.copy()
+            new_sol['learning_rate_init'] = lr_list[lr_vecino==1][0]
+            new_sol['alpha'] = alpha_list[alpha_vecino==1][0]   
+            
+            ### obtengo el fitness del vecino en la iteracion
+            _, score = funciones.entrenar_NN(X_train, Y_train, X_val, Y_val, k, new_sol)
+            new_sol["fitness"] = score  
+            
+            ### conserva el primer vecino que mejore la FO
+            if best_sol['fitness']< new_sol["fitness"]:
+                best_sol = new_sol.copy()
+                logger.info(f'Mejora la solucion con la busqueda local: {best_sol}')
+                print('Mejora')
+                return best_sol
         
     logger.info('NO HAY MEJORA EN EL VECINDARIO')
     return best_sol
@@ -347,7 +374,9 @@ def AG(X_train,
        iteracion = 0,
        desc = 'run',
        BH = False,
-       LS = False):
+       LS = False,
+       bin_cont = False,
+       vec_size = 5):
 
     time_ini = time.time()
 
@@ -385,7 +414,8 @@ def AG(X_train,
         max_alpha,
         min_lr,
         max_lr,
-    )
+        bin_cont = bin_cont)
+    
     poblacion, fitness, best_mod, best_score = evaluar_fitness_poblacion(X_train, Y_train, X_val, Y_val, poblacion, k=k)
 
     historia_score.append(best_score)
@@ -396,7 +426,7 @@ def AG(X_train,
         for j in range(population_size - cant_seleccion):
 
             padre_1, padre_2 = seleccion(poblacion)
-            hijo = crossover(X_train, Y_train, X_val, Y_val, k, padre_1, padre_2)
+            hijo = crossover(X_train, Y_train, X_val, Y_val, k, padre_1, padre_2, bin_cont = bin_cont)
 
             if random.random() < prob_mutacion:
                 hijo = mutacion(hijo,
@@ -408,7 +438,8 @@ def AG(X_train,
                                 max_alpha,
                                 min_lr,
                                 max_lr,
-                                escenario=escenario)
+                                escenario=escenario,
+                                bin_cont = bin_cont)
 
             hijos.append(hijo)
 
@@ -426,7 +457,7 @@ def AG(X_train,
         if score > best_score:
             best_score = score
             best_mod = mod
-    
+            
         ### BUSQUEDA EXAHUSTIVA
         if BH:
             logger.info(f'Inicia busqueda exahustiva en la generacion al final de la generacion {i}')
@@ -442,21 +473,22 @@ def AG(X_train,
                 
                 logger.info('Agrega a la poblacion el mejor individuo de la BH')
                 ### ingresamos a la poblacion el mejor individuo encontrado
-                poblacion, fitness, mod, score = update_poblacion(X_train,
-                                                                    Y_train,
-                                                                    X_val,
-                                                                    Y_val,
-                                                                    poblacion,
-                                                                    fitness,
-                                                                    [best_mod],
-                                                                    k=k)
+                if not best_mod in poblacion:
+                    poblacion, fitness, mod, score = update_poblacion(X_train,
+                                                                      Y_train,
+                                                                      X_val,
+                                                                      Y_val,
+                                                                      poblacion,
+                                                                      fitness,
+                                                                      hijos,
+                                                                      k=k)
         ### BUSQUEDA LOCAL
         if LS:
             logger.info(f'Inicia busqueda local en la generacion al final de la generacion {i}')
             ### consideramos una busqueda exahustiva en la mejor solucion encontrada
             best_sol = busqueda_local(X_train, Y_train, X_val, Y_val, k, 
                                       min_alpha, max_alpha, min_lr, max_lr, 
-                                      best_mod, vec_size =5)
+                                      best_mod, vec_size = vec_size, bin_cont = bin_cont)
             
             ### actualiza la mejor solucion enconrada
             if best_sol['fitness'] > best_score:
@@ -466,21 +498,29 @@ def AG(X_train,
                 best_mod = best_sol.copy()    
                 
                 logger.info('Agrega a la poblacion el mejor individuo de LS')
-                ### ingresamos a la poblacion el mejor individuo encontrado
-                poblacion, fitness, mod, score = update_poblacion(X_train,
-                                                                    Y_train,
-                                                                    X_val,
-                                                                    Y_val,
-                                                                    poblacion,
-                                                                    fitness,
-                                                                    [best_mod],
-                                                                    k=k)
+                if not best_mod in poblacion:
+                    ### ingresamos a la poblacion el mejor individuo encontrado
+                    poblacion, fitness, mod, score = update_poblacion(X_train,
+                                                                      Y_train,
+                                                                      X_val,
+                                                                      Y_val,
+                                                                      poblacion,
+                                                                      fitness,
+                                                                      hijos,
+                                                                      k=k)
 
     bes_mod_entrenado, _ = funciones.entrenar_NN(X_train, Y_train, X_val, Y_val, k, best_mod)
 
     time_exec = time.time() - time_ini
 
     ### Guardo resultados
+    if bin_cont:
+        best_mod['learning_rate_init_bin'] = str(list(best_mod['learning_rate_init_bin']))
+        best_mod['alpha_bin'] = str(list(best_mod['alpha_bin']))
+    else:
+        best_mod['learning_rate_init_bin'] = str([])
+        best_mod['alpha_bin'] = str([])        
+    
     res = {
         'population_size': population_size,
         'num_generaciones': num_generacion,
@@ -536,7 +576,8 @@ def AG(X_train,
 #                                                                  prob_mutacion=0.2,
 #                                                                  escenario=1,
 #                                                                  BH = False,
-#                                                                  LS = True)
+#                                                                  LS = True,
+#                                                                  bin_cont = True)
 #
 #    # realiza las predicciones en el conjutno de prueba
 #    proba_test = bes_mod_entrenado.predict_proba(X_test)[:, 1]
