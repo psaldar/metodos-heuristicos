@@ -1,1 +1,0 @@
-{"population_size": 10, "num_generaciones": 5, "prob_selecicon": 0.5, "prob_mutacion": 0.2, "best_score": 0.7810582510320591, "best_mod": {"layer_sizes": [7, 51], "activation": "identity", "alpha": 0.0001, "alpha_bin": 

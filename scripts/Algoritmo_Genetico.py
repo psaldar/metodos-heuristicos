@@ -14,7 +14,6 @@ import pandas as pd
 import datetime as dt
 from tqdm import tqdm
 import sklearn.metrics as metrics
-
 # %%
 # Define el archivo en el que se guararan los logs del codigo
 import logging
@@ -419,7 +418,7 @@ def AG(X_train,
     poblacion, fitness, best_mod, best_score = evaluar_fitness_poblacion(X_train, Y_train, X_val, Y_val, poblacion, k=k)
 
     historia_score.append(best_score)
-
+    last_sol = ''
     for i in tqdm(range(num_generacion)):
         logger.info(f'generacion {i} de {num_generacion}')
         hijos = []
@@ -452,62 +451,78 @@ def AG(X_train,
                                                           hijos,
                                                           k=k)
 
-        historia_score.append(score)
-
+        
+        
         if score > best_score:
             best_score = score
-            best_mod = mod
+            best_mod = mod.copy()
             
         ### BUSQUEDA EXAHUSTIVA
         if BH:
-            logger.info(f'Inicia busqueda exahustiva en la generacion al final de la generacion {i}')
-            ### consideramos una busqueda exahustiva en la mejor solucion encontrada
-            best_sol = busqueda_exahustiva(X_train, Y_train, X_val, Y_val, k, best_mod)
-            
-            ### actualiza la mejor solucion enconrada
-            if best_sol['fitness'] > best_score:
+            if not last_sol==str(best_mod):
+                logger.info(f'Inicia busqueda exahustiva en la generacion al final de la generacion {i}')
+                ### consideramos una busqueda exahustiva en la mejor solucion encontrada
+                best_sol = busqueda_exahustiva(X_train, Y_train, X_val, Y_val, k, best_mod)
                 
-                logger.info('Encuentra mejor solucion en busqueda exahustiva')
-                best_score = best_sol['fitness']
-                best_mod = best_sol.copy()    
-                
-                logger.info('Agrega a la poblacion el mejor individuo de la BH')
-                ### ingresamos a la poblacion el mejor individuo encontrado
-                if not best_mod in poblacion:
-                    poblacion, fitness, mod, score = update_poblacion(X_train,
-                                                                      Y_train,
-                                                                      X_val,
-                                                                      Y_val,
-                                                                      poblacion,
-                                                                      fitness,
-                                                                      hijos,
-                                                                      k=k)
+                last_sol = str(best_mod.copy())
+                last_mod = best_mod.copy()
+                ### actualiza la mejor solucion enconrada
+                if best_sol['fitness'] > best_score:                    
+                    
+                    logger.info('Encuentra mejor solucion en busqueda exahustiva')
+                    best_score = best_sol['fitness']
+                    best_mod = best_sol.copy()    
+                    
+                    logger.info('Agrega a la poblacion el mejor individuo de la BH')
+                    ### ingresamos a la poblacion el mejor individuo encontrado
+                    if not best_mod in poblacion:
+                        logger.info(f'AGREGADO:{best_mod}')
+                        print(f'AGREGADO:{best_mod}')
+                        poblacion[poblacion.index(last_mod)] = best_mod.copy()
+
+            else:
+                logger.info(f"YA SE EVALUO LA SOLUCION")
+                logger.info(f"ANTES: {last_mod}")
+                logger.info(f"AHORA: {best_mod}")
         ### BUSQUEDA LOCAL
         if LS:
-            logger.info(f'Inicia busqueda local en la generacion al final de la generacion {i}')
-            ### consideramos una busqueda exahustiva en la mejor solucion encontrada
-            best_sol = busqueda_local(X_train, Y_train, X_val, Y_val, k, 
-                                      min_alpha, max_alpha, min_lr, max_lr, 
-                                      best_mod, vec_size = vec_size, bin_cont = bin_cont)
-            
-            ### actualiza la mejor solucion enconrada
-            if best_sol['fitness'] > best_score:
+            if not last_sol==str(best_mod):
+                logger.info(f'Inicia busqueda local en la generacion al final de la generacion {i}')
+                ### consideramos una busqueda exahustiva en la mejor solucion encontrada
+                best_sol = busqueda_local(X_train, Y_train, X_val, Y_val, k, 
+                                          min_alpha, max_alpha, min_lr, max_lr, 
+                                          best_mod, vec_size = vec_size, bin_cont = bin_cont)
                 
-                logger.info('Encuentra mejor solucion en busqueda local')
-                best_score = best_sol['fitness']
-                best_mod = best_sol.copy()    
+                last_sol = str(best_mod.copy())
+                last_mod = best_mod.copy()
+                ### actualiza la mejor solucion enconrada
+                if best_sol['fitness'] > best_score:
+                    
+                    logger.info('Encuentra mejor solucion en busqueda local')
+                    best_score = best_sol['fitness']
+                    best_mod = best_sol.copy()    
+                    
+                    logger.info('Agrega a la poblacion el mejor individuo de LS')
+                    if not best_mod in poblacion:
+                        logger.info(f'AGREGADO:{best_mod}')
+                        print(f'AGREGADO:{best_mod}')
+                        ### ingresamos a la poblacion el mejor individuo encontrado
+                        poblacion[poblacion.index(last_mod)] = best_mod.copy()
+    #                    poblacion, fitness, mod, score = update_poblacion(X_train,
+    #                                                                      Y_train,
+    #                                                                      X_val,
+    #                                                                      Y_val,
+    #                                                                      poblacion,
+    #                                                                      fitness,
+    #                                                                      [best_mod],
+    #                                                                      k=k)
+            else:
+                logger.info(f"YA SE EVALUO LA SOLUCION")
+                logger.info(f"ANTES: {last_mod}")
+                logger.info(f"AHORA: {best_mod}")
                 
-                logger.info('Agrega a la poblacion el mejor individuo de LS')
-                if not best_mod in poblacion:
-                    ### ingresamos a la poblacion el mejor individuo encontrado
-                    poblacion, fitness, mod, score = update_poblacion(X_train,
-                                                                      Y_train,
-                                                                      X_val,
-                                                                      Y_val,
-                                                                      poblacion,
-                                                                      fitness,
-                                                                      hijos,
-                                                                      k=k)
+        historia_score.append(best_score)
+        logger.info(f'Historia: {historia_score}')
 
     bes_mod_entrenado, _ = funciones.entrenar_NN(X_train, Y_train, X_val, Y_val, k, best_mod)
 
